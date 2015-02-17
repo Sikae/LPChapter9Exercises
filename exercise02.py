@@ -16,23 +16,27 @@ Calculate button
 import tkinter as tk
 
 class InvestmentCalculator:
+    """
+    Creates a GUI for computing the future value of an investment at a given
+    interest rate for a specified number of years
+    """
     def __init__(self):
         self.__window = tk.Tk()
         self.__window.title("Investment Calculator")
-        tk.Label(self.__window, text="Investment Amount").grid(row=1,
-                                                        column=1, sticky=tk.W)
+        tk.Label(self.__window, text="Investment Amount")\
+        .grid(row=1, column=1, sticky=tk.W)
         self.__amount = tk.DoubleVar()
-        tk.Entry(self.__window, textvariable=self.__amount,
-              justify = tk.RIGHT).grid(row=1, column=2)
+        tk.Entry(self.__window, textvariable=self.__amount, justify=tk.RIGHT)\
+        .grid(row=1, column=2)
         tk.Label(self.__window, text="Years").grid(row=2, column=1, sticky=tk.W)
         self.__years = tk.DoubleVar()
-        tk.Entry(self.__window, textvariable = self.__years,
-              justify = tk.RIGHT).grid(row=2, column=2)
+        tk.Entry(self.__window, textvariable=self.__years, justify=tk.RIGHT).\
+        grid(row=2, column=2)
         tk.Label(self.__window, text="Annual Interest Rate"\
                  ).grid(row=3, column=1, sticky=tk.W)
         self.__interest_rate = tk.DoubleVar()
-        tk.Entry(self.__window, textvariable = self.__interest_rate,
-              justify = tk.RIGHT).grid(row=3, column=2)
+        tk.Entry(self.__window, textvariable=self.__interest_rate,
+                 justify=tk.RIGHT).grid(row=3, column=2)
         tk.Label(self.__window, text="Future Value").grid(row=4,
                                                           column=1, sticky=tk.W)
         tk.Button(self.__window, text="Calculate",
@@ -50,6 +54,6 @@ class InvestmentCalculator:
             (self.__years.get() * 12)
         future_value = format(future_value, ".2f")
         tk.Label(self.__window,
-                 text = future_value).grid(row=4, column=2, sticky=tk.E)
+                 text=future_value).grid(row=4, column=2, sticky=tk.E)
 
 InvestmentCalculator()
